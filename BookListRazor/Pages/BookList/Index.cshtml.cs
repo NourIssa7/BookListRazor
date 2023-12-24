@@ -21,5 +21,16 @@ namespace BookListRazor.Pages.BookList
             Books =await _db.Book.ToListAsync();
             
         }
+
+        public async Task <IActionResult> OnPostDelete(int id)
+        {
+            var book = await _db.Book.FindAsync(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+            _db.Book.Remove(book);
+            await _db.SaveChangesAsync();return RedirectToAction("Index");
+        }
     }
 }
