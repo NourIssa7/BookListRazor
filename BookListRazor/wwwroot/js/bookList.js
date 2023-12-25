@@ -19,7 +19,7 @@ function loadDataTable() {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                    <a href="/BookList/Edit?id=${data}" class="btn btn-info">Edit</a>
+                    <a href="/BookList/Upsert?id=${data}" class="btn btn-info">Edit</a>
                     &nbsp;
                     <a onclick=Delete('/api/book?id='+${data}) class="btn btn-danger">Delete</a>
                     </div>`;
